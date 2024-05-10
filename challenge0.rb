@@ -1,16 +1,18 @@
 # Challenge 0 by Asma Shaikh
 puts "Enter the sub total amount: "
 sub_total = gets.chomp.to_f
-puts "Your sub total is #{sub_total}"
-PST = 0.25
-GST = 0.25
+# puts "Your sub total is #{sub_total}"
+GST = 0.05
+PST = 0.07
 
 # tax calculation
-grand_total = sub_total + PST + GST
+gst_amount = sub_total * GST
+pst_amount = sub_total * PST
+grand_total = sub_total + pst_amount + gst_amount
 puts "sub_total : $#{sub_total.to_f}"
-puts "PST: $#{PST} - 7%"
-puts "GST: $#{GST} - 5%"
-puts "Grand total: $#{grand_total}"
+puts "PST: $#{'%.2f' % pst_amount} - 7%"
+puts "GST: $#{'%.2f' % gst_amount} - 5%"
+puts "Grand total: $#{'%.2f' % grand_total}"
 if(grand_total <= 5.00)
     puts "Pocket Change!"
 end
